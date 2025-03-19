@@ -8,28 +8,47 @@
 </head>
 <body>
     <header>
-        <h1>Panel del Guardia</h1>
+        <h1>Portal del Guardia</h1>
     </header>
     <main>
+        <!-- Registro de Paquetería -->
         <section>
-            <h2>Consulta de Placas</h2>
-            <label for="placas">Ingrese número de placas:</label>
-            <input type="text" id="placas" placeholder="Ejemplo: ABC123" required>
-            <button onclick="consultarPlacas()">Consultar</button>
-            <div id="resultadoPlacas"></div>
+            <h2>Registro de Paquetería</h2>
+            <form id="formPaqueteria" enctype="multipart/form-data">
+                <label for="nombreGuardia">Nombre del Guardia:</label>
+                <input type="text" id="nombreGuardia" name="nombreGuardia" required>
+
+                <label for="paqueteria">Nombre de la Paquetería:</label>
+                <input type="text" id="paqueteria" name="paqueteria" required>
+
+                <label for="nombreResidente">Nombre del Residente:</label>
+                <input type="text" id="nombreResidente" name="nombreResidente" required>
+
+                <label for="departamentoPaquete">Departamento:</label>
+                <input type="text" id="departamentoPaquete" name="departamento" required>
+
+                <label for="fotoPaquete">Fotografía:</label>
+                <input type="file" id="fotoPaquete" name="foto" accept="image/*" required>
+
+                <button type="button" onclick="registrarPaqueteria()">Registrar Paquete</button>
+            </form>
+            <div id="resultadoPaqueteria"></div>
         </section>
+        <!-- Registro de Entregas -->
         <section>
-            <h2>Entrega de Delivery</h2>
-            <label for="departamento">Ingrese Departamento:</label>
-            <input type="text" id="departamento" placeholder="Ejemplo: 104" required>
-            <button onclick="gestionarEntrega('delivery')">Registrar Delivery</button>
-            <div id="resultadoEntrega"></div>
-        </section>
-        <section>
-            <h2>Recepción de Paquetería</h2>
-            <label for="departamento">Ingrese Departamento:</label>
-            <input type="text" id="departamento" placeholder="Ejemplo: 104" required>
-            <button onclick="gestionarEntrega('paqueteria')">Registrar Paquete</button>
+            <h2>Registro de Entregas de Paquetes</h2>
+            <form id="formEntrega">
+                <label for="fechaEntrega">Fecha de Entrega:</label>
+                <input type="date" id="fechaEntrega" name="fechaEntrega" required>
+
+                <label for="horaEntrega">Hora de Entrega:</label>
+                <input type="time" id="horaEntrega" name="horaEntrega" required>
+
+                <label for="quienRecibe">Quién Recibe:</label>
+                <input type="text" id="quienRecibe" name="quienRecibe" required>
+
+                <button type="button" onclick="registrarEntrega()">Registrar Entrega</button>
+            </form>
             <div id="resultadoEntrega"></div>
         </section>
     </main>

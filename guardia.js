@@ -1,22 +1,31 @@
-async function consultarPlacas() {
-    const placas = document.getElementById('placas').value;
-    const resultadoDiv = document.getElementById('resultadoPlacas');
-
-    if (!placas) {
-        resultadoDiv.style.color = 'red';
-        resultadoDiv.innerText = 'Por favor, ingrese un número de placas válido.';
-        return;
-    }
+async function registrarPaqueteria() {
+    const form = document.getElementById('formPaqueteria');
+    const formData = new FormData(form);
 
     try {
-        const response = await fetch('config/placas_residentes.json');
-        const data = await response.json();
-        const registro = data.residentes.find((item) => item.placa === placas);
+        const response = await fetch('http://localhost:3000/registrar-paqueteria', {
+            method: 'POST',
+            body: formData
+        });
 
-        if (registro) {
-            const departamento = registro.departamento === "Sin asignar" ? "No asignado" : registro.departamento;
-            resultadoDiv.style.color = 'green';
-            resultadoDiv.innerText = `Placas ${placas} autorizadas. Departamento: ${departamento}.`;
-        } else {
-            resultadoDiv.style.color = 'red';
-            resultadoDiv.innerText = `Placas ${placas
+        const mensaje = response.ok ? 'Paquete registrado exitosamente.' : 'Error al registrar el paquete.';
+        document.getElementById('resultadoPaqueteria').innerText = mensaje;
+    } catch (error) {
+        console.error('Error al registrar el paquete:', error);
+        document.getElementById('resultadoPaqueteria').innerText = 'Error al registrar el paquete.';
+    }
+}
+
+async function registrarEntrega() {
+    const fechaEntrega = document.getElementById('fechaEntrega').value;
+    const horaEntrega = document.getElementById('horaEntrega').value;
+    const quienRecibe = document.getElementById('quienRecibe').value;
+
+    try {
+        const response = await fetch('http://localhost:3000/registrar-entrega', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fechaEntrega, horaEntrega, quienRecibe })
+        });
+
+        const mensaje
