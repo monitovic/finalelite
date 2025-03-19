@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+}
+main {
+    margin: 20px auto;
+    max-width: 600px;
+}
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #218838;
+}
+#resultadoPlacas, #resultadoEntrega {
+    margin-top: 15px;
+    font-weight: bold;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Placas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log("Service Worker registrado"))
+                .catch((error) => console.error("Error al registrar el Service Worker:", error));
+        }
+    </script>
+</head>
+<body>
+    <div class="logo">
+        <p class="elite">Elite</p>
+        <p class="campanario">CAMPANARIO</p>
+    </div>
+    <h1>Buscador de Placas</h1>
+    <input type="text" id="searchInput" placeholder="Ingresa las placas" onkeyup="buscarPlaca()">
+    <table id="placasTable">
+        <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Departamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>H05BNL</td><td>104</td></tr>
+            <tr><td>UMY233J</td><td>104</td></tr>
+            <tr><td>UNX263J</td><td></td></tr>
+            <tr><td>UNJ718H</td><td></td></tr>
+            <tr><td>V98BED</td><td></td></tr>
+            <tr><td>UKX759J</td><td>PH2</td></tr>
+            <tr><td>21G576</td><td>403</td></tr>
+            <tr><td>LKH235A</td><td>403</td></tr>
+            <tr><td>MWK407B</td><td>403</td></tr>
+            <tr><td>URC194F</td><td></td></tr>
+            <tr><td>UMK709H</td><td></td></tr>
+            <tr><td>JLJ261J</td><td>704</td></tr>
+            <tr><td>UML017J</td><td>704</td></tr>
+            <tr><td>UNX245E</td><td>404</td></tr>
+            <tr><td>MXD7391</td><td>903</td></tr>
+            <tr><td>NWP7465</td><td>903</td></tr>
+            <tr><td>LMB434A</td><td></td></tr>
+            <tr><td>GVK637F</td><td></td></tr>
+            <tr><td>UNH756E</td><td>601</td></tr>
+            <tr><td>PWS728E</td><td>PH4</td></tr>
+            <tr><td>ULB291E</td><td></td></tr>
+            <tr><td>UKN897K</td><td></td></tr>
+            <tr><td>RCS733R</td><td></td></tr>
+            <tr><td>RAP235D</td><td></td></tr>
+            <tr><td>UKN986K</td><td></td></tr>
+            <tr><td>UKU697G</td><td>901</td></tr>
+            <tr><td>UNS754E</td><td>304</td></tr>
+            <tr><td>UPD561H</td><td>502</td></tr>
+            <tr><td>UKP537K</td><td>502</td></tr>
+            <tr><td>UPD094E</td><td>501</td></tr>
+            <tr><td>VCP888D</td><td>501</td></tr>
+            <tr><td>ULM831E</td><td>607</td></tr>
+            <tr><td>UNM39E</td><td>PH7</td></tr>
+            <tr><td>13N234</td><td>801</td></tr>
+            <tr><td>UPJ950</td><td>801</td></tr>
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Placas</title>
+</head>
+<body>
+    <h1>Agregar Placa del Visitante</h1>
+    <form>
+        <label for="placa">Placa del vehículo:</label>
+        <input type="text" id="placa" name="placa" placeholder="Ejemplo: ABC-123">
+        <button type="button" onclick="guardarPlaca()">Guardar Placa</button>
+    </form>
+    <script>
+        function guardarPlaca() {
+            const placa = document.getElementById('placa').value;
+            alert(`Placa guardada: ${placa}`);
+        }
+    </script>
+    <a href="registro.html">Ir al registro de visitas</a>
+</body>
+</html>

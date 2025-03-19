@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Visitas</title>
+    <script src="qr-generator.js"></script>
+</head>
+<body>
+    <h1>Registro de Visitas</h1>
+    <form id="registroForm">
+        <label for="placa">Placa del vehículo:</label>
+        <input type="text" id="placa" name="placa" placeholder="Ejemplo: ABC-123">
+        <input type="checkbox" id="sinPlaca" name="sinPlaca">
+        <label for="sinPlaca">Sin placa</label><br><br>
+
+        <label for="departamento">Departamento que visita:</label>
+        <input type="text" id="departamento" name="departamento"><br><br>
+
+        <label for="nombre">Nombre completo del visitante:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+
+        <button type="button" onclick="generarQR()">Generar QR</button>
+    </form>
+    <div id="qrcode"></div>
+
+    <h2>Escanear Código QR</h2>
+    <div id="qr-reader" style="width: 300px;"></div>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <script>
+        function onScanSuccess(decodedText, decodedResult) {
+            console.log(`Código escaneado: ${decodedText}`);
+            alert(`Datos escaneados: ${decodedText}`);
+        }
+
+        const html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 }
+        );
+        html5QrcodeScanner.render(onScanSuccess);
+    </script>
+</body>
+</html>
